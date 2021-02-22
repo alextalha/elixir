@@ -1,0 +1,80 @@
+Elixir é a linguagem de programação. Phoenix é o framework para desenvolvimento de aplicações web utilizando o Elixir
+
+
+https://www.notion.so/Configura-es-do-ambiente-Elixir-f823443de76840cbbcb8ab1db8aa4667
+
+mix archive.install hex phx_new 1.5.7
+
+
+no ubuntu precisa instalar o sudo apt-get install erlang-dev
+verificar a permissa da lib dentro de _build gettext para a permissão do Usuario.
+
+
+
+criando um projeto 
+
+// criar uma api que não sirva nada de html e css
+mix phx.new rocketpay --no-webpack no-html
+
+
+o cli é o mix 
+
+vamos criar uma api de pagamento 
+
+elix é uma linguagem compilada, logo primeiro build demora  
+compila para perlang , roda sobre a maquina virtual da perlang
+que em 2018 rodava 
+
+elix veio para dar uma roupagem para o perlag. 
+
+ajuda
+
+
+=========================================
+
+instalar essas extensões 
+elixlinter 
+elixrLS 
+
+configs 
+
+ElixLS => COnfigurações 
+
+[] Desmarcar Dialyser
+[]Suggest @spec
+ ================================================
+
+configurando credo 
+
+analisador sintatico de código 
+
+
+vamos no mix.exs
+
+e adicionar a dependencia do credo nas dependencias  similar as dependencias do package json.
+
+
+ {:credo, "~> 1.5", only: [:dev,:test], runtime: false},
+
+
+vamos baixar novamente as dependencias 
+
+// instalar e atualizar as dependencias 
+mix deps.get
+
+// gerar uma configuração pro credo 
+mix credo gen.config
+
+
+//subir um server 
+mix phx.server 
+
+//vamos ver o dashboard
+http://localhost:4000/dashboard
+
+
+===============================================
+
+lib/rocketpay => logica negocio e banco de dados 
+
+lib/rocket_web => views, controllers, route
