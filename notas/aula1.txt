@@ -208,9 +208,33 @@ Banana.metodo
 
 =============================================
 
+Programação Funcional é uma esteira de fábrica 
+
+* lembrar sempre utilizar aspas duplas de vez de aspas simples
 
 
+exemplo de pipe operator via termiminal 
+
+iex(2)> "numbers" |> Rocketpay.Numbers.sum_from_file()
+{:ok, %{result: 37}}
 
 
+# pegamos o valor e atribuimos a uma variavel da esquerda pra direita 
+%{"filename" => filename}
+
+# map de parametros 
+
+${filename: "numbers" , value: 5}
+
+#fazer o patern match em um map 
+
+iex(5)> %{value: x} = %{filename: "numbers", value: 5}
+value casou com algum parametro da esquerda ? se sim busca esse valor 
+
+===================================
+
+STREAM
+Faz a mesma coisa do Enum , operador lazy, só executado  quando precisa do resultado
+sepre bom fazer map com Stream em vez do Enum. bem mais performatico 
 
 
