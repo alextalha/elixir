@@ -22,7 +22,8 @@ defmodule RocketpayWeb.Router do
   scope "/api", RocketpayWeb do
     pipe_through :api
 
-    get "/", WelcomeController, :index
+    #get "/", WelcomeController, :index
+    get "/:filename", WelcomeController, :index # vamos receber o nome como parametro
   end
 
   # Other scopes may use custom stacks.

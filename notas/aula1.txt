@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=9wxjZ4DjeAY&ab_channel=Rocketseat
+
+
 Elixir é a linguagem de programação. Phoenix é o framework para desenvolvimento de aplicações web utilizando o Elixir
 
 
@@ -42,6 +45,20 @@ ElixLS => COnfigurações
 
 [] Desmarcar Dialyser
 []Suggest @spec
+
+
+================================
+
+verificando o banco de dados 
+
+mix ecto.setup
+
+DOCKER
+
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo docker start postgres
+sudo docker restart postgres
  ================================================
 
 configurando credo 
@@ -78,3 +95,122 @@ http://localhost:4000/dashboard
 lib/rocketpay => logica negocio e banco de dados 
 
 lib/rocket_web => views, controllers, route
+
+
+=====================
+
+para usar o modo interativo do elix é só rodar 
+> iex 
+
+para rodar o elix com com o contexto do projeto corrente rodar 
+
+interactive elixir
+> iex -S mix
+
+Rocketpay.Numbers.sum_from_file("numbers")
+{:ok, "1,2,3,4,8,9,10"}  ==> resultado exibido 
+
+
+ tupla { }
+
+
+=====================
+
+PATTERN MATCH 
+ 
+ faz um match para depois atribuir, como se fosse uma pré validação 
+
+
+caso 1 
+
+ {:ok, file} = File.read('arquivo.csv')
+ 
+ 1- o retorno da direita retorna valores, se sim ele retorna :ok 
+ 2 - caso tenha dado :ok , então da match com o {:ok, file} da direita.
+ 3 - e por ter dado match agora podemos atribuir o valor a variavel file 
+
+Caso 2 
+
+[a,b,c,d] = [1,2,3,4]
+
+1 - existem 4 elementos no array casa com as 4 posições da esquerda então deu match
+
+2  - agora a recebe 1 , b recebe 2 , 3 recebe 3 e d recebe 4 
+3 - se tivessemos o mesmo exemplo porém sem o d por exemplo não daria match e não atribuiria 
+retornando assim um erro.
+
+
+defp => função privada
+
+
+
+========================
+
+PIPE OPERATOR 
+
+
+usando o pipe operator pelo iex  
+
+"numbers" |> Rocketpay.Numbers.soma_valores()
+
+o valor de "numbers" irá como primeiro parametro de soma_valores
+========================
+
+
+métodos primitivos no terminal , exemplos 
+
+String. e damos TAB 
+
+replace_trailing/3      reverse/1               slice/2                 
+slice/3                 split/1                 split/2                 
+split/3                 split_at/2              splitter/2              
+splitter/3              starts_with?/2          to_atom/1               
+to_charlist/1           to_existing_atom/1      to_float/1              
+to_integer/1            to_integer/2            trim/1                  
+trim/2                  trim_leading/1          trim_leading/2          
+trim_trailing/1         trim_trailing/2         upcase/1                
+upcase/2                valid?/1 
+
+
+temos como saber todos os principais métodos de String
+
+ver a documentação . colocar o h antes do método 
+
+h String.split
+
+
+converter de string para inteiro 
+
+Enum.map(lista, fn number -> String.to_integer(number) end)
+
+
+Usamos o enum com o método map para percorrer os elementos, passamos o array de string 
+como primeiro argumento de map, criamos uma função anonima que tera como number cada 
+item percorrido de map, e o retorno dessa função faremos a conversão passando number 
+que é o cada item 
+
+
+O elixer é uma linguagem funcional que tem o conceito de imutabilidade para se ter concorrencia 
+de uma forma segura. garantimos que o dado não muda 
+
+============================================
+
+ALIAS 
+
+alias Rocketpay.Numbers
+# Só precisamos agora passar 
+Numbers.metodo
+
+#Ou se quisermos substituir o nome da alias 
+alias Rocketpay.Numbers, as: Banana
+
+Banana.metodo
+
+=============================================
+
+
+
+
+
+
+
